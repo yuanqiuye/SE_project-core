@@ -30,9 +30,7 @@ router.use(async (req, res, next) => {
 })
 
 router.use('/auth', require('./route/auth'))
-router.use('/classroom', require('./route/classroom'))
-router.use('/request', require('./route/request'))
-router.use('/review', require('./route/review'))
+router.use('/app', require('./route/bss'))
 
 router.all('*', (req, res) => {
     res.status(404).json({

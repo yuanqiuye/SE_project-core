@@ -3,10 +3,10 @@ const router = express.Router()
 const JWT = require('./../../module/jwt')
 const user = require('./../../module/user')
 
-router.post('/register' ,async (req, res) => {
+router.post('/userRegister' ,async (req, res) => {
     const body = req.body
     if(body && body.account && body.password){
-        const result = await user.register(body.account, body.password, body.name, body.passwordTips)
+        const result = await user.register(body.account, body.password, body.hint)
 
         if(result){
             res.json({
@@ -23,7 +23,7 @@ router.post('/register' ,async (req, res) => {
     })
 })
 
-router.post('/login', async (req, res) => {
+router.post('/userLogin', async (req, res) => {
     const body = req.body
     if(body && body.account && body.password){
         const result = await user.login(body.account, body.password)
@@ -38,27 +38,48 @@ router.post('/login', async (req, res) => {
 
             res.json({
                 status: 0,
-                msg: "Success",
-                data: {
-                    userId: result.userId,
-                    name: result.name
-                }
+                msg: "Success"
             })
             return
         }
 
         res.json({
             status: -1,
-            msg: 'account or password wrong',
-            data: {}
+            msg: 'account or password wrong'
         })
         return
         
     }
     res.json({
         status: -2,
-        msg: 'Invalid body',
-        data: {}
+        msg: 'Invalid body'
+    })
+})
+
+router.post('/getPasswordHint', async (req, res) => {
+    const body = req.body
+    if(body.account){
+        const result = await user.getHint(body.account)
+
+        if(result.hint){
+            res.json({
+                status: 0,
+                msg: "Success",
+                hint: result.hint
+            })
+            return
+        }
+
+        res.json({
+            status: -1,
+            msg: 'account or password wrong'
+        })
+        return
+        
+    }
+    res.json({
+        status: -2,
+        msg: 'Invalid body'
     })
 })
 
