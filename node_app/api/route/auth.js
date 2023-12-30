@@ -18,7 +18,7 @@ router.post('/userRegister' ,async (req, res) => {
     }
     res.json({
         status: -2,
-        msg: 'Invalid body',
+        msg: 'Duplicate account',
         data: {}
     })
 })
