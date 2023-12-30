@@ -6,7 +6,7 @@ CREATE TABLE `reservation`(
     `date` INT NOT NULL,
     `start` INT NOT NULL,
     `end` INT NOT NULL,
-    'key_state' INT NOT NULL
+    `key_state` INT NOT NULL
 );
 CREATE TABLE `classroom`(
     `cid` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
@@ -34,7 +34,7 @@ CREATE TABLE `user`(
 CREATE TABLE `save`(
     `uid` INT NOT NULL,
     `cid` VARCHAR(255) NOT NULL
-)
+);
 ALTER TABLE
     `user` ADD UNIQUE `user_acc_unique`(`acc`);
 ALTER TABLE

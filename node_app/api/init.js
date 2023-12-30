@@ -48,7 +48,7 @@ router.use('/app', require('./route/bss'))
 router.all('*', (req, res) => {
     res.status(404).json({
         code: -2,
-        msg: 'Not found',
+        msg: 'Not found ?',
         data: {}
     })
 })
