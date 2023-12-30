@@ -3,11 +3,13 @@ const db = require('./database')
 class User {
     async register(user, pwd, pwdtips){
         const result = await db('user').
-            upsert({
+            insert({
                 acc: user,
                 pwd: pwd,
                 pwdtips: pwdtips
             })
+            .onConflict('acc')
+            .ignore()
         return result[0]
     }
 
