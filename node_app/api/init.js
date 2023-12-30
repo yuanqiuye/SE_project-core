@@ -9,6 +9,7 @@ router.use(cookieParser())
 
 router.use((req, res, next) => {
     const origin = req.headers.origin
+    console.dir(req.headers)
     res.setHeader('Access-Control-Allow-Origin', origin)
     res.setHeader('Access-Control-Allow-Methods', 'PUT,GET,POST,DELETE,OPTIONS')
     res.setHeader('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept')
