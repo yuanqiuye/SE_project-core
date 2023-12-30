@@ -7,6 +7,18 @@ const JWT = require('./../module/jwt')
 router.use(express.json())
 router.use(cookieParser())
 
+router.use((req, res, next) => {
+    const origin = req.headers.origin
+    res.setHeader('Access-Control-Allow-Origin', origin)
+    res.setHeader('Access-Control-Allow-Methods', 'PUT,GET,POST,DELETE,OPTIONS')
+    res.setHeader('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept')
+    res.setHeader('Access-Control-Allow-Credentials', 'true')
+    if(req.method === "OPTIONS"){
+        return res.status(200).end()
+    }
+    next()
+})
+
 router.use(async (req, res, next) => {
     req.uid = -1
 
