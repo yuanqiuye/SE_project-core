@@ -48,7 +48,6 @@ router.post('/userLogin', async (req, res) => {
             msg: 'account or password wrong'
         })
         return
-        
     }
     res.json({
         status: -2,
@@ -75,7 +74,6 @@ router.post('/getPasswordHint', async (req, res) => {
             msg: 'account or password wrong'
         })
         return
-        
     }
     res.json({
         status: -2,

@@ -2,7 +2,7 @@ const db = require('./database')
 
 class User {
     async register(user, pwd, pwdtips){
-        const result = await db('user').
+        const result = await db('User').
             insert({
                 acc: user,
                 pwd: pwd,
@@ -14,7 +14,7 @@ class User {
     }
 
     async login(usr, pwd){
-        const result = await db("user").where({
+        const result = await db('User').where({
             'acc': usr,
             'pwd': pwd
         }).first()
@@ -30,7 +30,7 @@ class User {
     }
 
     async getHint(usr){
-        const result = await db("user").where({
+        const result = await db('User').where({
             'acc': usr
         }).first()
         if(result){
