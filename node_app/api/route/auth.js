@@ -43,7 +43,8 @@ router.post('/userLogin', async (req, res) => {
 
             res.json({
                 status: 0,
-                msg: "Success"
+                msg: "Success",
+                level: result.level
             })
             return
         }
