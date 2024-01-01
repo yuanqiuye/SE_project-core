@@ -47,18 +47,18 @@ ALTER TABLE
     `reservation` ADD CONSTRAINT `reservation_review_id_foreign` FOREIGN KEY(`review_id`) REFERENCES `reivew`(`review_id`);
 ALTER USER 'root' IDENTIFIED WITH mysql_native_password BY 'password'; 
 
-INSERT INTO `classroom` (`building`, `name`, `code`) VALUES ('資工系館', '一般教室', 'insB10');
-INSERT INTO `classroom` (`building`, `name`, `code`) VALUES ('資工系館', '一般教室', 'insB12');
-INSERT INTO `classroom` (`building`, `name`, `code`) VALUES ('資工系館', '一般教室', 'insB07');
-INSERT INTO `classroom` (`building`, `name`, `code`) VALUES ('資工系館', '視聽教室', 'ins303');
-INSERT INTO `classroom` (`building`, `name`, `code`) VALUES ('資工系館', '研究生教室', 'ins407');
-INSERT INTO `classroom` (`building`, `name`, `code`) VALUES ('資工系館', '研討室', 'ins409');
-INSERT INTO `classroom` (`building`, `name`, `code`) VALUES ('資工系館', '視聽教室', 'ins101');
-INSERT INTO `classroom` (`building`, `name`, `code`) VALUES ('資工系館', '視聽教室', 'ins105');
-INSERT INTO `classroom` (`building`, `name`, `code`) VALUES ('資工系館', '個人電腦實驗室', 'ins203');
-INSERT INTO `classroom` (`building`, `name`, `code`) VALUES ('資工系館', '3D多媒體教學實驗室', 'ins205');
-INSERT INTO `classroom` (`building`, `name`, `code`) VALUES ('資工系館', '電子電路實驗室', 'ins301');
-INSERT INTO `classroom` (`building`, `name`, `code`) VALUES ('資工系館', '212討論室', 'ins212');
+INSERT INTO `classroom` (`building`, `name`, `code`) VALUES ('資工系館', '一般教室', 'insB10'),
+('資工系館', '一般教室', 'insB12'),
+('資工系館', '一般教室', 'insB07'),
+('資工系館', '視聽教室', 'ins303'),
+('資工系館', '研究生教室', 'ins407'),
+('資工系館', '研討室', 'ins409'),
+('資工系館', '視聽教室', 'ins101'),
+('資工系館', '視聽教室', 'ins105'),
+('資工系館', '個人電腦實驗室', 'ins203'),
+('資工系館', '3D多媒體教學實驗室', 'ins205'),
+('資工系館', '電子電路實驗室', 'ins301'),
+('資工系館', '212討論室', 'ins212');
 
 INSERT INTO `user` (`acc`, `pwd`, `pwdtips`, `level`) VALUES ('root', 'root', 'haha', 0);
 
