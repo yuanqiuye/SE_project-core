@@ -37,14 +37,6 @@ CREATE TABLE `save`(
 );
 ALTER TABLE
     `user` ADD UNIQUE `user_acc_unique`(`acc`);
-ALTER TABLE
-    `reivew` ADD CONSTRAINT `reivew_reser_id_foreign` FOREIGN KEY(`reser_id`) REFERENCES `reservation`(`reser_id`);
-ALTER TABLE
-    `reservation` ADD CONSTRAINT `reservation_cid_foreign` FOREIGN KEY(`cid`) REFERENCES `classroom`(`cid`);
-ALTER TABLE
-    `reservation` ADD CONSTRAINT `reservation_uid_foreign` FOREIGN KEY(`uid`) REFERENCES `user`(`uid`);
-ALTER TABLE
-    `reservation` ADD CONSTRAINT `reservation_review_id_foreign` FOREIGN KEY(`review_id`) REFERENCES `reivew`(`review_id`);
 ALTER USER 'root' IDENTIFIED WITH mysql_native_password BY 'password'; 
 
 INSERT INTO `classroom` (`building`, `name`, `code`) VALUES ('資工系館', '一般教室', 'insB10'),
