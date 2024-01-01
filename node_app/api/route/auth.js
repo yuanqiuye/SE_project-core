@@ -1,7 +1,7 @@
 const express = require('express')
 const router = express.Router()
 const JWT = require('./../../module/jwt')
-const user = require('../../module/user')
+const user = require('./../../module/user')
 
 //註冊部分
 router.post('/userRegister' ,async (req, res) => {
@@ -33,7 +33,6 @@ router.post('/userLogin', async (req, res) => {
     if(body && body.account && body.password){
         //取得使用者的帳號、密碼
         const result = await user.login(body.account, body.password)
-        const test=1 //github desktop 有bug 加此行才可push(by 23322231)
         if(result.userId){
             const token = JWT.signJWT(result)
             res.cookie('jwt', token, {
