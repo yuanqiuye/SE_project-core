@@ -31,9 +31,9 @@ router.post('/userLogin', async (req, res) => {
     //取得輸入的資訊
     const body = req.body
     if(body && body.account && body.password){
-        //取的使用者的帳號、密碼
+        //取得使用者的帳號、密碼
         const result = await user.login(body.account, body.password)
-
+        const test=1 //github desktop 有bug 加此行才可push(by 23322231)
         if(result.userId){
             const token = JWT.signJWT(result)
             res.cookie('jwt', token, {
@@ -60,7 +60,7 @@ router.post('/userLogin', async (req, res) => {
         msg: 'Invalid body'
     })
 })
-
+//密碼提示部分
 router.post('/getPasswordHint', async (req, res) => {
     const body = req.body
     if(body.account){
