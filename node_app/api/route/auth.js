@@ -38,7 +38,8 @@ router.post('/userLogin', async (req, res) => {
             res.cookie('jwt', token, {
                 maxAge: (new Date()).getTime() / 1000 + 1000 * 3600 * 24 * 30,
                 path: '/',
-                sameSite: 'none', secure: true, httpOnly: true
+                sameSite: 'none', secure: true, httpOnly: true,
+                domain: 'qiuye.mooo.com'
             })
 
             res.json({
