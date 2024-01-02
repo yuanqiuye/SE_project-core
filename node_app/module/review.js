@@ -4,7 +4,7 @@ class Request {
     async get_list(){
         const result = await db('reservation')
             .whereNull('review_id')
-        var ans = []
+            var ans = []
         for(var reser in result){
             ans.push({
                 id: reser.reser_id,
