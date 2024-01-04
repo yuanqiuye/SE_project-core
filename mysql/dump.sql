@@ -38,7 +38,7 @@ CREATE TABLE `save`(
 );
 CREATE TABLE `enableTime`(
     `cid` VARCHAR(255) NOT NULL,
-    `PeriodText` VARCHAR(16383) NOT NULL,
+    `PeriodText` TEXT NOT NULL,
     UNIQUE (`cid`)
 );
 ALTER USER 'root' IDENTIFIED WITH mysql_native_password BY 'password'; 
