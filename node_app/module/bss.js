@@ -58,6 +58,7 @@ class BSS {
         var results = await db('classroom')
             .select()
         const ans = {}
+        console.dir(results)
         if(results){
             for(var result in results){
                 ans[result.code] = []
