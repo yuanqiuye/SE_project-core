@@ -1,7 +1,7 @@
 CREATE TABLE `reservation`(
     `reser_id` VARCHAR(255) NOT NULL PRIMARY KEY,
     `cid` VARCHAR(255) NOT NULL,
-    `uid` INT NOT NULL,
+    `uid` VARCHAR(255) NOT NULL,
     `review_id` INT NULL,
     `date` INT NOT NULL,
     `start` INT NOT NULL,
@@ -29,14 +29,18 @@ CREATE TABLE `user`(
     `pwdtips` VARCHAR(255) NOT NULL,
     `level` INT NOT NULL DEFAULT '1',
     `point` INt NOT NULL DEFAULT '0',
-    `banned` INt NOT NULL DEFAULT '0'
+    `banned` INt NOT NULL DEFAULT '0',
+    UNIQUE (`acc`)
 );
 CREATE TABLE `save`(
-    `uid` INT NOT NULL,
+    `uid` VARCHAR(255) NOT NULL,
     `cid` VARCHAR(255) NOT NULL
 );
-ALTER TABLE
-    `user` ADD UNIQUE `user_acc_unique`(`acc`);
+CREATE TABLE `enableTime`(
+    `cid` VARCHAR(255) NOT NULL,
+    `PeriodText` VARCHAR(25535) NOT NULL,
+    UNIQUE (`cid`)
+);
 ALTER USER 'root' IDENTIFIED WITH mysql_native_password BY 'password'; 
 
 INSERT INTO `classroom` (`building`, `name`, `code`) VALUES ('資工系館', '一般教室', 'insB10'),

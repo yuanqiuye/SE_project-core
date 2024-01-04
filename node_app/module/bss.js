@@ -45,19 +45,11 @@ class BSS {
     }
 
     async getEnablePeriodData(cid){
-        const results = await db('reservation')
+        const results = await db('enableTime')
             .select()
             .where("cid", cid)
         if(results){
-            const ans = []
-            for(var result in results){
-                ans.push({
-                    "day": result.date,
-                    "startPeriod": result.start,
-                    "endPeriod": result.end
-                })
-            }
-            return ans
+            return JSON.parse(results.PeriodText)
         }
         return {}
     }
@@ -71,22 +63,29 @@ class BSS {
                 ans[result.code] = []
             }
         }
-        results = await db('reservation')
+        results = await db('enableTime')
             .select()
         if(results){
             for(var result in results){
-                ans[result.cid].push({
-                    "day": result.date,
-                    "startPeriod": result.start,
-                    "endPeriod": result.end
-                })
+                ans[result.cid] = JSON.parse(result.PeriodText)
             }
         }
         return ans
     }
 
-    async setEnablePeriod(){
-        return {}
+    async setEnablePeriod(cid, enablePeriod){
+        const result = await db('enableTime')
+            .insert({
+                cid: cid,
+                PeriodText: JSON.stringify(enablePeriod) 
+            })
+            .onConflict('cid')
+            .merge()
+        if(result){
+            return true
+        }else{
+            return false
+        }
     }
 
     async sendApply(cid, uid, date, start, end){
@@ -270,8 +269,26 @@ class BSS {
         return {}
     }
 
-    async getAllSave(){
-        return {}
+    async getAllSave(uid){
+        var results = await db('classroom')
+            .select()
+        const ans = {}
+        if(results){
+            for(var result in results){
+                ans[result.code] = false
+            }
+        }
+        results = await db('save')
+            .select()
+            .where({
+                uid: uid
+            })
+        if(results){
+            for(var result in results){
+                ans[result.cid] = true
+            }
+        }
+        return ans
     }
  
 }

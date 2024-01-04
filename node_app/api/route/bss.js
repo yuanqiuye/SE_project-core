@@ -4,6 +4,13 @@ const bss = require('./../../module/bss')
 
 router.post('/getUserPeriodData' ,async (req, res) => {
     const acc = req.body.userAccount
+    if(acc == undefined){
+        res.status(404).json({
+            code: -2,
+            msg: 'You do not fill account = =',
+            data: {}
+        })
+    }
 
     const result = await bss.getUserPeriodData(acc)
     res.json(
@@ -37,8 +44,11 @@ router.post('/getAllEnablePeriodData' ,async (req, res) => {
 })
 
 router.post('/setEnablePeriod' ,async (req, res) => {
+    const cid = req.body.classroomID
+    const PeriodText = req.body.enablePeriod
+    const result = await bss.setEnablePeriod(cid, enablePeriod)
     res.json({
-        code: 200
+        result
     })
 })
 
@@ -179,7 +189,7 @@ router.post('/romoveSave' ,async (req, res) => {
 router.post('/getAllSave' ,async (req, res) => {
     const uid = req.body.userAccount
 
-    const result = await bss.getAllSave()
+    const result = await bss.getAllSave(uid)
     res.json(
         result
     )
