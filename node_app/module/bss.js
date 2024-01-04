@@ -286,7 +286,7 @@ class BSS {
             .where({
                 uid: uid
             })
-        if(results){
+        if(results[0]){
             results.forEach(result => {
                 ans[result.cid] = true
             })
