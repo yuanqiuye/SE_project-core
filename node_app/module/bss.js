@@ -7,7 +7,7 @@ class BSS {
             .where('uid', acc)
         if(results){
             const ans = []
-            for(var result in results){
+            results.forEach(result => {
                 ans.push({
                     "pid": result.reser_id,
                     "classroomID": result.cid,
@@ -17,7 +17,7 @@ class BSS {
                         "endPeriod": result.end
                     }
                 })
-            }
+            })
             return ans
         }
         return {}
@@ -28,7 +28,7 @@ class BSS {
             .select()
         if(results){
             const ans = []
-            for(var result in results){
+            result.forEach(result => {
                 ans.push({
                     "pid": result.reser_id,
                     "classroomID": result.cid,
@@ -38,7 +38,7 @@ class BSS {
                         "endPeriod": result.end
                     }
                 })
-            }
+            })
             return ans
         }
         return {}
@@ -49,7 +49,7 @@ class BSS {
             .select()
             .where("cid", cid)
         if(results){
-            return JSON.parse(results.PeriodText)
+            return JSON.parse(results[0].PeriodText)
         }
         return {}
     }
@@ -60,16 +60,16 @@ class BSS {
         const ans = {}
         console.dir(results)
         if(results){
-            for(var result in results){
+            results.forEach(result => {
                 ans[result.code] = []
-            }
+            })
         }
         results = await db('enableTime')
             .select()
-        if(results){
-            for(var result in results){
+        if(results[0]){
+            results.forEach(result => {
                 ans[result.cid] = JSON.parse(result.PeriodText)
-            }
+            })
         }
         return ans
     }
@@ -187,25 +187,27 @@ class BSS {
     async getAllUserPoint(){
         const results = await db('user')
             .select()
-        if(results){
+        if(results[0]){
             var ans = []
-            for(var result in results){
+            results.forEach(result => {
                 ans.push({
                     'account': result.acc,
                     'role': 0,
                     'point': result.point,
                     'banned': result.banned
                 })
-            }
+            })
+            return ans
         }
+        return {}
     }
 
     async getUserPoint(uid){
         const results = await db('user')
             .where('acc', uid)
-        if(results){
+        if(results[0]){
             return {
-                'point': results.point
+                'point': results[0].point
             }
         }
         return {}
@@ -275,9 +277,9 @@ class BSS {
             .select()
         const ans = {}
         if(results){
-            for(var result in results){
+            results.forEach(result => {
                 ans[result.code] = false
-            }
+            })
         }
         results = await db('save')
             .select()
@@ -285,9 +287,9 @@ class BSS {
                 uid: uid
             })
         if(results){
-            for(var result in results){
+            results.forEach(result => {
                 ans[result.cid] = true
-            }
+            })
         }
         return ans
     }
