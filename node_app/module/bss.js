@@ -28,7 +28,7 @@ class BSS {
             .select()
         if(results){
             const ans = []
-            result.forEach(result => {
+            results.forEach(result => {
                 ans.push({
                     "pid": result.reser_id,
                     "classroomID": result.cid,
@@ -105,7 +105,6 @@ class BSS {
                 reser_id: reser_id,
                 cid: cid,
                 uid: uid,
-                date: Date(date),
                 start: start,
                 end: end,
                 key_state: 0,
