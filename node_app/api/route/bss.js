@@ -38,9 +38,9 @@ router.post('/getEnablePeriodData' ,async (req, res) => {
 router.post('/getAllEnablePeriodData' ,async (req, res) => {
 
     const result = await bss.getAllEnablePeriodData()
-    res.json({
+    res.json(
         result
-    })
+    )
 })
 
 router.post('/setEnablePeriod' ,async (req, res) => {

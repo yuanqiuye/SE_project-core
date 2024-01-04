@@ -48,7 +48,7 @@ class BSS {
         const results = await db('enableTime')
             .select()
             .where("cid", cid)
-        if(results){
+        if(results[0]){
             return JSON.parse(results[0].PeriodText)
         }
         return {}
