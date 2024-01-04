@@ -46,7 +46,7 @@ router.post('/getAllEnablePeriodData' ,async (req, res) => {
 router.post('/setEnablePeriod' ,async (req, res) => {
     const cid = req.body.classroomID
     const PeriodText = req.body.enablePeriod
-    const result = await bss.setEnablePeriod(cid, enablePeriod)
+    const result = await bss.setEnablePeriod(cid, PeriodText)
     res.json({
         result
     })
