@@ -1,24 +1,71 @@
 const db = require('./database')
 
 class BSS {
+    toShowData(date){
+        const currentDate = new Date();
+        if(currentDate.getDay() == 0 || currentDate.getDay() == 6){
+            const currentDayOfWeek = currentDate.getDay();
+            const daysUntilNextMonday = (1 + 7 - currentDayOfWeek) % 7;
+            const nextMonday = new Date(date);
+            nextMonday.setDate(date.getDate() + daysUntilNextMonday);
+            const nextFriday = new Date(nextMonday);
+            nextFriday.setDate(nextMonday.getDate() + 4);
+            return date >= nextMonday && date <= nextFriday;
+        }else{
+            const currentDate = new Date();
+            const currentDayOfWeek = currentDate.getDay();
+            const daysUntilMonday = currentDayOfWeek === 0 ? 6 : currentDayOfWeek - 1;
+            const currentMonday = new Date(currentDate);
+            currentMonday.setDate(currentDate.getDate() - daysUntilMonday);
+            const currentFriday = new Date(currentMonday);
+            currentFriday.setDate(currentMonday.getDate() + 4);
+            return date >= currentMonday && date <= currentFriday;
+        }
+    }
+
+    processData(results){
+        const ans = []
+        results.forEach(result => {
+            const currentTime = new Date()
+            const startTime = new Date(result.start)
+            const endTime = new Date(result.end)
+            if (this.toShowData(startTime)){
+                var status = 7
+                if(result.review_id == 0){
+                    status = 0
+                }else if(result.review_id == -1){
+                    status = 1
+                }else if(currentTime < startTime && result.key_state == 0){
+                    status = 2
+                }else if(currentTime < startTime && result.key_state == -1){
+                    status = 3
+                }else if(currentTime > startTime && currentTime < endTime){
+                    status = 4
+                }else if(currentTime > endTime && result.key_state == -1){
+                    status = 5
+                }else if(currentTime > endTime && result.key_state == 1){
+                    status = 6
+                }
+                ans.push({
+                    "pid": result.reser_id,
+                    "classroomID": result.cid,
+                    "period": {
+                        "startPeriod": result.start,
+                        "endPeriod": result.end
+                    },
+                    "status": status
+                })
+            }
+        })
+        return ans
+    }
+
     async getUserPeriodData(acc){
         const results = await db('reservation')
             .select()
             .where('uid', acc)
         if(results){
-            const ans = []
-            results.forEach(result => {
-                ans.push({
-                    "pid": result.reser_id,
-                    "classroomID": result.cid,
-                    "period": {
-                        "day": result.date,
-                        "startPeriod": result.start,
-                        "endPeriod": result.end
-                    }
-                })
-            })
-            return ans
+            return this.processData(results)
         }
         return {}
     }
@@ -27,19 +74,7 @@ class BSS {
         const results = await db('reservation')
             .select()
         if(results){
-            const ans = []
-            results.forEach(result => {
-                ans.push({
-                    "pid": result.reser_id,
-                    "classroomID": result.cid,
-                    "period": {
-                        "day": result.date,
-                        "startPeriod": result.start,
-                        "endPeriod": result.end
-                    }
-                })
-            })
-            return ans
+            return this.processData(results)
         }
         return {}
     }
@@ -89,9 +124,7 @@ class BSS {
         }
     }
 
-    async sendApply(cid, uid, date, start, end){
-        const now = new Date();
-  
+    async sendApply(cid, uid, start, end){ 
         const year = now.getFullYear();
         const month = (now.getMonth() + 1).toString().padStart(2, '0');
         const day = now.getDate().toString().padStart(2, '0');
@@ -105,7 +138,6 @@ class BSS {
                 reser_id: reser_id,
                 cid: cid,
                 uid: uid,
-                date: date,
                 start: start,
                 end: end,
                 key_state: 0,

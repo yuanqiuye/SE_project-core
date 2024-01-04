@@ -54,12 +54,11 @@ router.post('/setEnablePeriod' ,async (req, res) => {
 
 router.post('/sendApply' ,async (req, res) => {
     const cid = req.body.classroomID
-    const date = req.body.selectedPeriod.day
     const start = req.body.selectedPeriod.startPeriod
     const end = req.body.selectedPeriod.endPeriod
     const uid = req.body.userAccount
 
-    const result = await bss.sendApply(cid, uid, date, start, end)
+    const result = await bss.sendApply(cid, uid, start, end)
     res.json({
         code: 200
     })

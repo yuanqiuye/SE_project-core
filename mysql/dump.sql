@@ -3,9 +3,8 @@ CREATE TABLE `reservation`(
     `cid` VARCHAR(255) NOT NULL,
     `uid` VARCHAR(255) NOT NULL,
     `review_id` INT NULL,
-    `date` INT NOT NULL,
-    `start` INT NOT NULL,
-    `end` INT NOT NULL,
+    `start` VARCHAR(255) NOT NULL,
+    `end` VARCHAR(255) NOT NULL,
     `key_state` INT NOT NULL
 );
 CREATE TABLE `classroom`(
