@@ -105,6 +105,7 @@ class BSS {
                 reser_id: reser_id,
                 cid: cid,
                 uid: uid,
+                date: date,
                 start: start,
                 end: end,
                 key_state: 0,
