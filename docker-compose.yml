@@ -6,6 +6,7 @@ services:
     environment:
       MYSQL_ROOT_PASSWORD: password
       MYSQL_DATABASE: test
+      TZ: Asia/Taipei
     restart: always
   web:
     build: ./node_app
@@ -14,6 +15,7 @@ services:
       MYSQL_USER: root
       MYSQL_PASSWORD: password
       MYSQL_HOST: db
+      TZ: Asia/Taipei
     ports:
       - "8888:5000"
     depends_on:
