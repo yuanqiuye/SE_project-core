@@ -3,6 +3,7 @@ const db = require('./database')
 class BSS {
     toShowData(date){
         const currentDate = new Date();
+        currentDate.setHours(0,0,0,0);
         if(currentDate.getDay() == 0 || currentDate.getDay() == 6){
             const currentDayOfWeek = currentDate.getDay();
             const daysUntilNextMonday = (1 + 7 - currentDayOfWeek) % 7;
@@ -93,7 +94,6 @@ class BSS {
         var results = await db('classroom')
             .select()
         const ans = {}
-        console.dir(results)
         if(results){
             results.forEach(result => {
                 ans[result.code] = []
