@@ -41,9 +41,9 @@ class BSS {
                     status = 3
                 }else if(currentTime > startTime && currentTime < endTime){
                     status = 4
-                }else if(currentTime > endTime && result.key_state == -1){
+                }else if(result.key_state == -1){
                     status = 5
-                }else if(currentTime > endTime && result.key_state == 1){
+                }else if(result.key_state == 1){
                     status = 6
                 }
                 ans.push({
