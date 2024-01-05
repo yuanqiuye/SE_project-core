@@ -7,8 +7,8 @@ class BSS {
         if(currentDate.getDay() == 0 || currentDate.getDay() == 6){
             const currentDayOfWeek = currentDate.getDay();
             const daysUntilNextMonday = (1 + 7 - currentDayOfWeek) % 7;
-            const nextMonday = new Date(date);
-            nextMonday.setDate(date.getDate() + daysUntilNextMonday);
+            const nextMonday = new Date(currentDate);
+            nextMonday.setDate(currentDate.getDate() + daysUntilNextMonday);
             const nextFriday = new Date(nextMonday);
             nextFriday.setDate(nextMonday.getDate() + 5);
             return date >= nextMonday && date <= nextFriday;
