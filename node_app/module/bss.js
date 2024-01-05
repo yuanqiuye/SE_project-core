@@ -43,7 +43,7 @@ class BSS {
                     status = 4
                 }else if(result.key_state == -1){
                     status = 5
-                }else if(result.key_state == 1){
+                }else if(result.key_state == 1 ){
                     status = 6
                 }
                 ans.push({
@@ -329,3 +329,4 @@ class BSS {
 }
 
 module.exports = new BSS()
+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
