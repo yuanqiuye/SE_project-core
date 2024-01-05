@@ -59,14 +59,10 @@ INSERT INTO `enableTime` (`cid`, `PeriodText`) VALUES
 ('insB10', '[{"day":1,"startPeriod":1,"endPeriod":8},{"day":2,"startPeriod":1,"endPeriod":8},{"day":3,"startPeriod":1,"endPeriod":8},{"day":4,"startPeriod":1,"endPeriod":8},{"day":5,"startPeriod":1,"endPeriod":8}]'),
 ('insB12', '[{"day":1,"startPeriod":1,"endPeriod":8},{"day":2,"startPeriod":1,"endPeriod":8},{"day":3,"startPeriod":1,"endPeriod":8},{"day":4,"startPeriod":1,"endPeriod":8},{"day":5,"startPeriod":1,"endPeriod":8}]'),
 ('insB07', '[{"day":1,"startPeriod":1,"endPeriod":8},{"day":2,"startPeriod":1,"endPeriod":8},{"day":3,"startPeriod":1,"endPeriod":8},{"day":4,"startPeriod":1,"endPeriod":8},{"day":5,"startPeriod":1,"endPeriod":8}]'),
-('ins303', '[{"day":1,"startPeriod":1,"endPeriod":8},{"day":2,"startPeriod":1,"endPeriod":8},{"day":3,"startPeriod":1,"endPeriod":8},{"day":4,"startPeriod":1,"endPeriod":8},{"day":5,"startPeriod":1,"endPeriod":8}]'),
-('ins407', '[{"day":1,"startPeriod":1,"endPeriod":8},{"day":2,"startPeriod":1,"endPeriod":8},{"day":3,"startPeriod":1,"endPeriod":8},{"day":4,"startPeriod":1,"endPeriod":8},{"day":5,"startPeriod":1,"endPeriod":8}]'),
-('ins409', '[{"day":1,"startPeriod":1,"endPeriod":8},{"day":2,"startPeriod":1,"endPeriod":8},{"day":3,"startPeriod":1,"endPeriod":8},{"day":4,"startPeriod":1,"endPeriod":8},{"day":5,"startPeriod":1,"endPeriod":8}]'),
 ('ins101', '[{"day":1,"startPeriod":1,"endPeriod":8},{"day":2,"startPeriod":1,"endPeriod":8},{"day":3,"startPeriod":1,"endPeriod":8},{"day":4,"startPeriod":1,"endPeriod":8},{"day":5,"startPeriod":1,"endPeriod":8}]'),
 ('ins105', '[{"day":1,"startPeriod":1,"endPeriod":8},{"day":2,"startPeriod":1,"endPeriod":8},{"day":3,"startPeriod":1,"endPeriod":8},{"day":4,"startPeriod":1,"endPeriod":8},{"day":5,"startPeriod":1,"endPeriod":8}]'),
 ('ins203', '[{"day":1,"startPeriod":1,"endPeriod":8},{"day":2,"startPeriod":1,"endPeriod":8},{"day":3,"startPeriod":1,"endPeriod":8},{"day":4,"startPeriod":1,"endPeriod":8},{"day":5,"startPeriod":1,"endPeriod":8}]'),
 ('ins205', '[{"day":1,"startPeriod":1,"endPeriod":8},{"day":2,"startPeriod":1,"endPeriod":8},{"day":3,"startPeriod":1,"endPeriod":8},{"day":4,"startPeriod":1,"endPeriod":8},{"day":5,"startPeriod":1,"endPeriod":8}]'),
-('ins301', '[{"day":1,"startPeriod":1,"endPeriod":8},{"day":2,"startPeriod":1,"endPeriod":8},{"day":3,"startPeriod":1,"endPeriod":8},{"day":4,"startPeriod":1,"endPeriod":8},{"day":5,"startPeriod":1,"endPeriod":8}]'),
 ('ins212', '[{"day":1,"startPeriod":1,"endPeriod":8},{"day":2,"startPeriod":1,"endPeriod":8},{"day":3,"startPeriod":1,"endPeriod":8},{"day":4,"startPeriod":1,"endPeriod":8},{"day":5,"startPeriod":1,"endPeriod":8}]');
 
 INSERT INTO `user` (`acc`, `pwd`, `pwdtips`, `level`) VALUES ('root', 'root', 'haha', 0);
