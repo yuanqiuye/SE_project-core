@@ -3,7 +3,9 @@ const app = express()
 const config = require('config')
 
 app.use('/api', require('./api/init'))
-
+app.use('/video', (req, res) => {
+    res.redirect(301, 'https://www.youtube.com/watch?v=dQw4w9WgXcQ')
+})
 
 app.all('*', (req, res) => {
     res.status(404).json({
