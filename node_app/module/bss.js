@@ -3,14 +3,14 @@ const db = require('./database')
 class BSS {
     toShowData(date){
         const currentDate = new Date();
-        currentDate.setHours(23,59,59,0);
+        currentDate.setHours(0,0,0,0);
         if(currentDate.getDay() == 0 || currentDate.getDay() == 6){
             const currentDayOfWeek = currentDate.getDay();
             const daysUntilNextMonday = (1 + 7 - currentDayOfWeek) % 7;
             const nextMonday = new Date(date);
             nextMonday.setDate(date.getDate() + daysUntilNextMonday);
             const nextFriday = new Date(nextMonday);
-            nextFriday.setDate(nextMonday.getDate() + 4);
+            nextFriday.setDate(nextMonday.getDate() + 5);
             return date >= nextMonday && date <= nextFriday;
         }else{
             const currentDayOfWeek = currentDate.getDay();
@@ -18,7 +18,7 @@ class BSS {
             const currentMonday = new Date(currentDate);
             currentMonday.setDate(currentDate.getDate() - daysUntilMonday);
             const currentFriday = new Date(currentMonday);
-            currentFriday.setDate(currentMonday.getDate() + 4);
+            currentFriday.setDate(currentMonday.getDate() + 5);
             return date >= currentMonday && date <= currentFriday;
         }
     }
