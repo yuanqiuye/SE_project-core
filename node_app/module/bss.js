@@ -13,7 +13,6 @@ class BSS {
             nextFriday.setDate(nextMonday.getDate() + 4);
             return date >= nextMonday && date <= nextFriday;
         }else{
-            const currentDate = new Date();
             const currentDayOfWeek = currentDate.getDay();
             const daysUntilMonday = currentDayOfWeek === 0 ? 6 : currentDayOfWeek - 1;
             const currentMonday = new Date(currentDate);
