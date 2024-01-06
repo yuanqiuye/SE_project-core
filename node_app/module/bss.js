@@ -30,7 +30,7 @@ class BSS {
             const startTime = new Date(result.start)
             const endTime = new Date(result.end)
             if (this.toShowData(startTime)){
-                var status = 7
+                var status = -1
                 if(result.review_id == 0){
                     status = 0
                 }else if(result.review_id == -1){
