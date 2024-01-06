@@ -33,6 +33,13 @@ router.post('/userLogin', async (req, res) => {
     if(body && body.account && body.password){
         //取得使用者的帳號、密碼
         const result = await user.login(body.account, body.password)
+        if(result.banned){
+            res.json({
+                status: -5,
+                msg: 'you are been banned'
+            })
+            return
+        }
         if(result.userId){
             const token = JWT.signJWT(result)
             res.cookie('jwt', token, {

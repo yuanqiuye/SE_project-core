@@ -18,8 +18,10 @@ class User {
             'acc': usr,
             'pwd': pwd
         }).first()
-
         if(result){
+            if(result.banned){
+                return -1
+            }
             return {
                 userId: result.uid,
                 name: usr,
