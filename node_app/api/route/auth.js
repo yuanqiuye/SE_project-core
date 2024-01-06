@@ -33,7 +33,7 @@ router.post('/userLogin', async (req, res) => {
     if(body && body.account && body.password){
         //取得使用者的帳號、密碼
         const result = await user.login(body.account, body.password)
-        if(result.banned){
+        if(result == -1){
             res.json({
                 status: -5,
                 msg: 'you are been banned'
