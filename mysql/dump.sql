@@ -56,6 +56,8 @@ INSERT INTO `classroom` (`building`, `name`, `code`) VALUES ('資工系館', '�
 ('資工系館', '212討論室', 'ins212');
 
 INSERT INTO `enableTime` (`cid`, `PeriodText`) VALUES
+('ins301', '[{"day":1,"startPeriod":1,"endPeriod":8},{"day":2,"startPeriod":1,"endPeriod":8},{"day":3,"startPeriod":1,"endPeriod":8},{"day":4,"startPeriod":1,"endPeriod":8},{"day":5,"startPeriod":1,"endPeriod":8}]'),
+('ins303', '[{"day":1,"startPeriod":1,"endPeriod":8},{"day":2,"startPeriod":1,"endPeriod":8},{"day":3,"startPeriod":1,"endPeriod":8},{"day":4,"startPeriod":1,"endPeriod":8},{"day":5,"startPeriod":1,"endPeriod":8}]'),
 ('insB10', '[{"day":1,"startPeriod":1,"endPeriod":8},{"day":2,"startPeriod":1,"endPeriod":8},{"day":3,"startPeriod":1,"endPeriod":8},{"day":4,"startPeriod":1,"endPeriod":8},{"day":5,"startPeriod":1,"endPeriod":8}]'),
 ('insB12', '[{"day":1,"startPeriod":1,"endPeriod":8},{"day":2,"startPeriod":1,"endPeriod":8},{"day":3,"startPeriod":1,"endPeriod":8},{"day":4,"startPeriod":1,"endPeriod":8},{"day":5,"startPeriod":1,"endPeriod":8}]'),
 ('insB07', '[{"day":1,"startPeriod":1,"endPeriod":8},{"day":2,"startPeriod":1,"endPeriod":8},{"day":3,"startPeriod":1,"endPeriod":8},{"day":4,"startPeriod":1,"endPeriod":8},{"day":5,"startPeriod":1,"endPeriod":8}]'),
